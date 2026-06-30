@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'light_theme.dart';
+import 'dark_theme.dart';
+
 class AppTheme {
   AppTheme._();
 
-  static ThemeData lightTheme = ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
-    useMaterial3: true,
-    appBarTheme: const AppBarTheme(centerTitle: true),
-  );  
+  static ThemeData get light => lightTheme;
+  static ThemeData get dark => darkTheme;
 }
