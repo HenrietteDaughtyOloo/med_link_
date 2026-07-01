@@ -17,11 +17,31 @@ class AuthImageBanner extends StatelessWidget {
           color: isLight ? const Color(0xFFE2F5F5) : const Color(0xFF1D3635),
         ),
       ),
-      child: Center(
-        child: Icon(
-          Icons.photo_library_rounded,
-          size: 72,
-          color: isLight ? const Color(0xFF004A43) : const Color(0xFF80CBC4),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(28),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Image.network(
+              'https://res.cloudinary.com/drt1jptk7/image/upload/v1782898515/login__vib7vd.png',
+              fit: BoxFit.contain, 
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: isLight ? const Color(0xFF004A43) : const Color(0xFF80CBC4),
+                  ),
+                );
+              },
+              errorBuilder: (context, error, stackTrace) {
+                return Icon(
+                  Icons.broken_image_rounded,
+                  size: 72,
+                  color: isLight ? const Color(0xFF004A43) : const Color(0xFF80CBC4),
+                );
+              },
+            ),
+          ),
         ),
       ),
     );

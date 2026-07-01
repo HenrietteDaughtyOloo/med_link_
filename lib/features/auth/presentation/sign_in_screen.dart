@@ -4,6 +4,8 @@ import 'widgets/auth_field.dart';
 import 'widgets/auth_image_banner.dart';
 import 'widgets/auth_toggle_card.dart';
 import 'widgets/pin_code_row.dart';
+import '../../home/presentation/app_shell.dart';
+import 'forgot_password_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -105,7 +107,14 @@ class _SignInScreenState extends State<SignInScreen> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ForgotPasswordScreen(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Forgot PIN?',
                     style: TextStyle(
@@ -119,7 +128,11 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (_) => const AppShell()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: colors.primary,
                     shape: RoundedRectangleBorder(

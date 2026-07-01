@@ -3,6 +3,7 @@ import 'widgets/auth_button.dart';
 import 'widgets/auth_field.dart';
 import 'widgets/auth_footer.dart';
 import 'widgets/auth_image_banner.dart';
+import 'sign_in_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -90,7 +91,15 @@ class SignUpScreen extends StatelessWidget {
               AuthFooter(
                 text: 'Already have an account? ',
                 actionText: 'Sign in',
-                onActionTap: () => Navigator.of(context).pop(),
+                // onActionTap: () => Navigator.of(context).pop(),
+                onActionTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignInScreen(),
+                    ),
+                  );
+                },
                 textColor: isLight ? const Color(0xFF3F4947) : Colors.white70,
                 actionColor: colors.primary,
               ),
